@@ -1,9 +1,9 @@
-import Image from "next/image";
 import React from "react";
-import {MainMenu} from "@/app/components/MainMenu";
 
-export default function Home() {
-    return (
-        <div className="bg-gray-900 shadow shadow-gray-700 rounded-lg p-12 h-96 w-full">hi</div>
-    )
+export default function Home(): React.JSX.Element {
+  return (
+    <div className="bg-gray-900 shadow shadow-gray-700 rounded-lg p-12 h-96 w-full">
+      hi
+    </div>
+  );
 }
