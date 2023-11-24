@@ -68,7 +68,7 @@ export default function MainMenu(...props: any[]): React.JSX.Element {
   return (
     <animated.div className="flex flex-col w-full justify-around items-center">
       <animated.div
-          className={"cursor-pointer rounded-2xl bg-[#B3005E] h-full flex items-center justify-center justify-center z-[100] p-3"}
+        className={"cursor-pointer rounded-2xl bg-[#B3005E] h-full flex items-center justify-center justify-center z-[100] p-3"}
         onClick={handleClick}
       ><RiMenu4Fill size={40}/></animated.div>
       <div className="flex flex-row w-[30rem] justify-around">
