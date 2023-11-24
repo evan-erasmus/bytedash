@@ -7,10 +7,10 @@ export default function MenuItem(props: any): React.JSX.Element {
   const style = props.style;
   const router = useRouter();
 
-  console.log(style);
+  // console.log(style);
 
   function handleClick(): void {
-    router.push("/dashboard");
+    router.push("/" + props.route);
     setTimeout(() => ({}), 2750);
   }
 
@@ -18,20 +18,11 @@ export default function MenuItem(props: any): React.JSX.Element {
     <animated.div
       {...props}
       onClick={handleClick}
-      className="h-16 w-16 rounded-full bg-white"
+      className="h-16 w-16 rounded-full cursor-pointer bg-white"
     >
-      <Image
-        priority
-        width={0}
-        height={0}
-        src="/assets/svg/stacked-peaks-haikei.svg"
-        alt={""}
-        style={{
-          borderRadius: "100%",
-          width: "100%",
-          height: "100%",
-        }}
-      />
+      <div className={"rounded-2xl h-full flex bg-[#E90064] items-center justify-center"}>
+        {props.icon}
+      </div>
     </animated.div>
   );
 }

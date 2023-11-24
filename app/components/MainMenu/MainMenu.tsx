@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { animated, useSpring } from "@react-spring/web";
 import MenuItem from "@/app/components/MainMenu/MenuItem";
+import { FaChartLine } from "react-icons/fa6";
+import { FaRegCircleUser } from "react-icons/fa6";
+import { FaTasks } from "react-icons/fa";
+import {RiDashboard2Line, RiLineChartLine, RiListCheck3, RiMenu4Fill, RiUser4Line} from "react-icons/ri";
+
 
 export default function MainMenu(...props: any[]): React.JSX.Element {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
@@ -33,7 +38,7 @@ export default function MainMenu(...props: any[]): React.JSX.Element {
     delay: 300,
   });
 
-  console.log(tr, tl, bl, br, props);
+  // console.log(tr, tl, bl, br, props);
   const handleClick = (): void => {
     toggle(!open);
   };
@@ -52,7 +57,7 @@ export default function MainMenu(...props: any[]): React.JSX.Element {
     const updateDimension = (): void => {
       setScreenSize(getCurrentDimension());
     };
-    console.log(screenSize);
+    // console.log(screenSize);
     window.addEventListener("resize", updateDimension);
 
     return () => {
@@ -63,22 +68,14 @@ export default function MainMenu(...props: any[]): React.JSX.Element {
   return (
     <animated.div className="flex flex-col w-full justify-around items-center">
       <animated.div
+          className={"cursor-pointer rounded-2xl bg-[#B3005E] h-full flex items-center justify-center justify-center z-[100] p-3"}
         onClick={handleClick}
-        style={{
-          backgroundImage:
-            "url(" + "/assets/svg/stacked-peaks-haikei.svg" + ")",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          ...main,
-        }}
-        className="z-[100] h-16 w-16 rounded-full"
-      ></animated.div>
+      ><RiMenu4Fill size={40}/></animated.div>
       <div className="flex flex-row w-[30rem] justify-around">
-        <MenuItem open={open} style={tl} />
-        <MenuItem open={open} style={bl} />
-        <MenuItem open={open} style={br} />
-        <MenuItem open={open} style={tr} />
+        <MenuItem route={"dashboard"} icon={<RiDashboard2Line size={40}/>} open={open} style={tl} />
+        <MenuItem route={"analytics"} icon={<RiLineChartLine size={40}/>} open={open} style={bl} />
+        <MenuItem route={"lists"} icon={<RiListCheck3 size={40}/>} open={open} style={br} />
+        <MenuItem route={"profile"} icon={<RiUser4Line size={40}/>} open={open} style={tr} />
       </div>
     </animated.div>
   );
